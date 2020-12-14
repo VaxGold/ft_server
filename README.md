@@ -1,8 +1,12 @@
 # ft_server
 
+
+#### ----- Comandos útiles ----- ####
+
 docker rm --force -v NombreContenedor
 # el comando --force para el contenedor si esta iniciado
 # el comando -v borra los volumenes del contenedor
+
 docker run --name mynginx1 -p 80:80 -p 443:443 -d nginx
 # mynginx1 es el nombre del contenedor basado en la imagen de nginx
 # la opcion -d especifica que el contenedor esta en "detached mode" (el contenedor sigue funcionando hasta lo paramos
@@ -12,13 +16,17 @@ docker run --name mynginx1 -p 80:80 -p 443:443 -d nginx
 # el comando devuelve el ID del contenedor (en mi caso ee4012b85d7c) este ID sera usado en los logs.
 # para verificar que el contenedor creado esta funcionando escribimos docker ps en la terminal
 # este comando nos permite verificar el puerto que esta mapeado el contenedor.
-# comprobar distro
+
+# Comprobar distro
 docker exec container-name cat /etc/os-release
-#crear imagen docker
+
+# Crear imagen docker
 docker build - < Dockerfile
-#crear imagen de docker y darle un nombre y version
+
+# Crear imagen de docker y darle un nombre y version
 docker build -t imagen1:1.0 - < Dockerfile
-Containers
+
+#### ----- Containers ----- ####
 Use docker container my_command
 create — Create a container from an image.
 start — Start an existing container.
@@ -29,7 +37,8 @@ logs — Print logs.
 stop — Gracefully stop running container.
 kill —Stop main process in container abruptly.
 rm— Delete a stopped container.
-Images
+
+#### ----- Images ----- ####
 Use docker image my_command
 build — Build an image.
 push — Push an image to a remote registry.
@@ -41,12 +50,22 @@ Misc
 docker version — List info about your Docker Client and Server versions.
 docker login — Log in to a Docker registry.
 docker system prune — Delete all unused containers, unused networks, and dangling images.
-##
-##lista de imagenes##
+
+## Lista de imagenes ##
 docker images
-##lista de contenedores##(el -a es para listar todos los contenedores)
+## Lista de contenedores ## (el -a es para listar todos los contenedores)
 docker ps -a
+
+## Construir y correr server ##
 docker build -t web_42 .
 docker run --name web_42 -it -p 80:80 -p 443:443 web_42
-##para todo y borra##
+
+## Parar y borrar todo ##
 docker rm -f $(docker ps -a -q) && docker rmi $(docker images -q)
+
+
+#### ----- Autoindex ----- ####
+
+ 1. Comprobar que funciona en https://localhost/wordpress/wp-includes/ 
+ 2. Modificar el "on" en mi_web_42 que se encuentra en el directorio /etc/nginx/sites-available dentro del contenedor
+ 3. Reiniciar nginx con "service nginx restart"

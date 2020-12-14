@@ -13,12 +13,7 @@ server{
         ssl_certificate_key /etc/nginx/ssl/mi_web_42.key;
         root /var/www/mi_web_42;
         index index.html index.htm index.nginx-debian.html index.php;
-#la parte de autoindex
-#comprobar que funciona en https://localhost/wordpress/wp-includes/
-#para desactivarlo modificar el "on" en mi_web_42
-#que se encuentra en el directorio /etc/nginx/sites-available
-#dentro del contenedor
-#despues reiniciar nginx con "service nginx restart"
+
         location /{
                 autoindex on;
                 autoindex_exact_size on;

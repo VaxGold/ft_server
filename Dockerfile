@@ -6,7 +6,7 @@
 #    By: omercade <omercade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/01 18:20:53 by omercade          #+#    #+#              #
-#    Updated: 2020/12/11 20:40:12 by omercade         ###   ########.fr        #
+#    Updated: 2020/12/14 18:35:11 by omercade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,9 @@ RUN apt update && \
 	apt -y install vim  && \
 	apt -y install curl
 
-# Copying important files at the docker root #
+# Copying important files at the docker tmp #
 COPY ./srcs/init_container.sh ./
 COPY ./srcs/nginx-config ./tmp/nginx-config
-#COPY ./srcs/index.html /var/www/html/
 COPY ./srcs/wp-config.php ./tmp/wp-config.php
 COPY ./srcs/config.inc.php ./tmp/config.inc.php
 
