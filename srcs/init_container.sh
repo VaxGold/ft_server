@@ -35,6 +35,8 @@ wget -c https://wordpress.org/latest.tar.gz
 tar -xvzf latest.tar.gz
 mv wordpress/ /var/www/mi_web_42
 mv /tmp/wp-config.php /var/www/mi_web_42/wordpress/wp-config.php
+mv /tmp/wordpress.sql /var/www/mi_web_42/wordpress/wordpress.sql
+mysql wordpress -u root < /var/www/mi_web_42/wordpress/wordpress.sql
 
 service php7.3-fpm start
 service nginx start

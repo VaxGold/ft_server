@@ -6,7 +6,7 @@
 #    By: omercade <omercade@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/01 18:20:53 by omercade          #+#    #+#              #
-#    Updated: 2020/12/14 18:35:11 by omercade         ###   ########.fr        #
+#    Updated: 2020/12/15 19:08:01 by omercade         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ RUN apt update && \
 COPY ./srcs/init_container.sh ./
 COPY ./srcs/nginx-config ./tmp/nginx-config
 COPY ./srcs/wp-config.php ./tmp/wp-config.php
+COPY ./srcs/wordpress.sql ./tmp/wordpress.sql
 COPY ./srcs/config.inc.php ./tmp/config.inc.php
 
 # Command for docker #
